@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "54004892097",
+    "firebase_url": "https://tlist-norman.firebaseio.com",
+    "project_id": "tlist-norman",
+    "storage_bucket": "tlist-norman.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54004892097:android:96bdcda55b7caf43d62f40",
+        "android_client_info": {
+          "package_name": "com.examen.tlist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54004892097-48732mq52doen7v0dtth15m99auik944.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrVZXmsvp-Pm8m1mBqAyfHVzVAWlx3nI4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54004892097-48732mq52doen7v0dtth15m99auik944.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
