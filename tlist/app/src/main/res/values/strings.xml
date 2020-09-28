@@ -2,4 +2,11 @@
     <string name="app_name">TList</string>
     <string name="login">Iniciar sesión</string>
     <string name="email">Correo electrónico</string>
+    <string name="title_to_done">Lista de tareas</string>
+    <string name="title_done_task">Completadas</string>
+    <string name="label_create_task">Guardar</string>
+    <string name="label_cancel">Cancelar</string>
+    <string name="title_to_task">Nueva tarea</string>
+    <string name="title_radio_button">Titulo</string>
+    <string name="pattern_day">yyyy/MM/dd HH:mm:ss</string>
 </resources>
