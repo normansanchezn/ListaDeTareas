@@ -19,9 +19,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.examen.tlist.R;
+import com.examen.tlist.data.local.RoomDb;
 import com.examen.tlist.services.firebase.FirebaseServices;
 import com.examen.tlist.ui.home.adaptertodone.TaskToDoneAdapter;
-import com.examen.tlist.ui.home.model.TaskEntity;
+import com.examen.tlist.data.local.model.TaskEntity;
 import com.examen.tlist.utils.ToolBox;
 import com.examen.tlist.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -46,6 +47,7 @@ public class HomeActivity extends AppCompatActivity {
     private Date date;
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
+    private RoomDb dataBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,7 @@ public class HomeActivity extends AppCompatActivity {
             Bundle extras = getIntent().getExtras();
             if (extras!= null){
                 saveUserPrefs(extras.getString("email"));
+                dataBase = RoomDb.getInstance(getApplicationContext(), extras.getString("email"));
             } else {
                 // do nothing maybe
             }
@@ -75,6 +78,11 @@ public class HomeActivity extends AppCompatActivity {
         dateFormat = new SimpleDateFormat(getResources().getString(R.string.pattern_day));
         listOfTask = new ArrayList<>();
 
+        if (!dataBase.localDao().getAllTaskToDone(false).isEmpty()){
+            listOfTask.clear();
+            listOfTask.addAll(dataBase.localDao().getAllTaskToDone(false));
+        }
+
         // For AlertDialog
         final AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
         builder.setView(dialogView);
@@ -89,7 +97,7 @@ public class HomeActivity extends AppCompatActivity {
         // List of task mock
         // listOfTask.add(new TaskEntity("Tarea", dateFormat.format(date), false));
 
-        mAdapter = new TaskToDoneAdapter(this, listOfTask, rvTaskDone);
+        mAdapter = new TaskToDoneAdapter(this, listOfTask, rvTaskDone, dataBase);
         rvTasktoDone.setAdapter(mAdapter);
 
         setListeners();
@@ -126,7 +134,9 @@ public class HomeActivity extends AppCompatActivity {
                     ToolBox.showToast(getApplicationContext(), getResources().getString(R.string.empty_task));
                 } else {
                     date = new Date();
-                    listOfTask.add(new TaskEntity(titleOfTask, dateFormat.format(date), false));
+                    TaskEntity taskEntity = new TaskEntity(titleOfTask, dateFormat.format(date), false);
+                    listOfTask.add(taskEntity);
+                    dataBase.localDao().insertTask(taskEntity);
                     mAdapter.notifyDataSetChanged();
                     dialogBuilder.dismiss();
                 }

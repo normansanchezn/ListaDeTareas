@@ -1,4 +1,4 @@
-package com.examen.tlist.ui.home.model;
+package com.examen.tlist.data.local.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -23,6 +23,10 @@ public class TaskEntity {
         this.titleOfTask = titleOfTask;
         this.dateOfTask = dateOfTask;
         this.verifyOfTask = verifyOfTask;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {

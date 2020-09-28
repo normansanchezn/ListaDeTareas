@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.examen.tlist.R;
+import com.examen.tlist.data.local.RoomDb;
 import com.examen.tlist.ui.home.adaptertaskdone.TaskDoneAdapter;
-import com.examen.tlist.ui.home.model.TaskEntity;
+import com.examen.tlist.data.local.model.TaskEntity;
 
 import java.util.ArrayList;
 
@@ -23,12 +24,14 @@ public class TaskToDoneAdapter extends RecyclerView.Adapter<TaskToDoneViewHolder
     RecyclerView rvTaskDone;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private RoomDb dataBase;
 
-    public TaskToDoneAdapter(Context ctx, ArrayList<TaskEntity> listOfTask, RecyclerView rvTaskDone) {
+    public TaskToDoneAdapter(Context ctx, ArrayList<TaskEntity> listOfTask, RecyclerView rvTaskDone, RoomDb dataBase) {
         this.context = ctx;
         this.list = listOfTask;
         this.rvTaskDone = rvTaskDone;
         listDone = new ArrayList<>();
+        this.dataBase = dataBase;
     }
 
     @NonNull
@@ -48,6 +51,12 @@ public class TaskToDoneAdapter extends RecyclerView.Adapter<TaskToDoneViewHolder
         mAdapter = new TaskDoneAdapter(context, listDone);
         rvTaskDone.setAdapter(mAdapter);
 
+        if (!dataBase.localDao().getAllTaskDone(true).isEmpty()) {
+            listDone.clear();
+            listDone.addAll(dataBase.localDao().getAllTaskDone(true));
+            mAdapter.notifyDataSetChanged();
+        }
+
         radioButton.setText(list.get(position).getTitleOfTask());
         radioButton.setChecked(list.get(position).getVerifyOfTask());
 
@@ -56,6 +65,7 @@ public class TaskToDoneAdapter extends RecyclerView.Adapter<TaskToDoneViewHolder
             public void onClick(View view) {
                 if (radioButton.isChecked()) {
                     list.get(position).setVerifyOfTask(true);
+                    dataBase.localDao().updateTask(true, list.get(position).getTitleOfTask());
                     listDone.add(list.get(position));
                     list.remove(position);
                 }

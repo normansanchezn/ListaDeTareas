@@ -1,4 +1,4 @@
-package com.examen.tlist.ui.registeruser.model;
+package com.examen.tlist.data.local.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -26,6 +26,10 @@ public class UserEntity {
         this.lastName = lastName;
         this.mail = mail;
         this.password = password;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {
