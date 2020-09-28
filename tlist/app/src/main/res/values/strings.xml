@@ -10,4 +10,15 @@
     <string name="title_radio_button">Titulo</string>
     <string name="pattern_day">yyyy/MM/dd HH:mm:ss</string>
     <string name="empty_task">Debes escribir el título de una tarea</string>
+    <string name="name">Nombre</string>
+    <string name="last_name">Apellido</string>
+    <string name="hint_mail">correo@electronico.com</string>
+    <string name="hint_password">*************</string>
+    <string name="register">Registrate</string>
+    <string name="register_here">Regístrate aquí</string>
+    <string name="error_void_fields">Debes ingresar todos los campos</string>
+    <string name="register_done">Se ha registrado un nuevo usuario</string>
+    <string name="error_register">Se produjo un error al registrar el usuario, inténtelo de nuevo</string>
+    <string name="error_login">El correo y/o contraseña incorrectas, comprueba tu información</string>
+    <string name="close_session">Cerrar sesión</string>
 </resources>

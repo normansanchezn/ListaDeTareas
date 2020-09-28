@@ -6,4 +6,73 @@
     android:layout_height="match_parent"
     tools:context=".ui.registeruser.RegisterUserActivity">
 
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/last_name"
+        app:layout_constraintEnd_toEndOf="@+id/etName"
+        app:layout_constraintStart_toStartOf="@+id/etName"
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+    <EditText
+        android:id="@+id/etMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="@string/hint_mail"
+        app:layout_constraintEnd_toEndOf="@+id/etLastName"
+        app:layout_constraintStart_toStartOf="@+id/etLastName"
+        app:layout_constraintTop_toBottomOf="@+id/etLastName" />
+
+    <EditText
+        android:id="@+id/etPasswordLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/etMail"
+        app:layout_constraintStart_toStartOf="@+id/etMail"
+        app:layout_constraintTop_toBottomOf="@+id/etMail" />
+
+    <EditText
+        android:id="@+id/etPasswordRepit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/hint_password"
+        app:layout_constraintEnd_toEndOf="@+id/etPasswordLogin"
+        app:layout_constraintStart_toStartOf="@+id/etPasswordLogin"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/register"
+        app:layout_constraintEnd_toEndOf="@+id/etPasswordRepit"
+        app:layout_constraintStart_toStartOf="@+id/etPasswordRepit"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordRepit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

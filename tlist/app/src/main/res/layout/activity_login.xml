@@ -17,26 +17,28 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/etEmailLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:text="normansanchezn@gmail.com"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etPasswordLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/etEmail"
-        app:layout_constraintStart_toStartOf="@+id/etEmail"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        android:text="Reptilia04"
+        app:layout_constraintEnd_toEndOf="@+id/etEmailLogin"
+        app:layout_constraintStart_toStartOf="@+id/etEmailLogin"
+        app:layout_constraintTop_toBottomOf="@+id/etEmailLogin" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -45,9 +47,9 @@
         android:layout_marginTop="16dp"
         android:enabled="true"
         android:text="@string/login"
-        app:layout_constraintEnd_toEndOf="@+id/etPassword"
-        app:layout_constraintStart_toStartOf="@+id/etPassword"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintEnd_toEndOf="@+id/etPasswordLogin"
+        app:layout_constraintStart_toStartOf="@+id/etPasswordLogin"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glLogin"
@@ -61,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Regístrate aquí"
+        android:text="@string/register_here"
         app:layout_constraintEnd_toEndOf="@+id/btnLogin"
         app:layout_constraintStart_toStartOf="@+id/btnLogin"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />

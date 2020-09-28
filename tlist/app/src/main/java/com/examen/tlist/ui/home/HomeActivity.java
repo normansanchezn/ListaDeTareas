@@ -1,20 +1,27 @@
 package com.examen.tlist.ui.home;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.examen.tlist.R;
+import com.examen.tlist.services.firebase.FirebaseServices;
 import com.examen.tlist.ui.home.adaptertodone.TaskToDoneAdapter;
 import com.examen.tlist.ui.home.model.TaskEntity;
 import com.examen.tlist.ui.home.utils.ToolBox;
+import com.examen.tlist.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.DateFormat;
@@ -104,5 +111,37 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.close_session:
+                // Firebase Close sessión
+                closeSession();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void closeSession() {
+        FirebaseServices.closeSession();
+        Intent goLogin = new Intent(this, LoginActivity.class);
+        startActivity(goLogin);
+        finishAffinity();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_close_session, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAffinity();
     }
 }
