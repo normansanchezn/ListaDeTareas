@@ -1,4 +1,4 @@
-package com.examen.tlist.ui.home.utils;
+package com.examen.tlist.utils;
 
 import android.content.Context;
 import android.widget.Toast;

@@ -21,4 +21,5 @@
     <string name="error_register">Se produjo un error al registrar el usuario, inténtelo de nuevo</string>
     <string name="error_login">El correo y/o contraseña incorrectas, comprueba tu información</string>
     <string name="close_session">Cerrar sesión</string>
+    <string name="key_prefs">prefs_user</string>
 </resources>

@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,7 +22,7 @@ import com.examen.tlist.R;
 import com.examen.tlist.services.firebase.FirebaseServices;
 import com.examen.tlist.ui.home.adaptertodone.TaskToDoneAdapter;
 import com.examen.tlist.ui.home.model.TaskEntity;
-import com.examen.tlist.ui.home.utils.ToolBox;
+import com.examen.tlist.utils.ToolBox;
 import com.examen.tlist.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -42,11 +44,24 @@ public class HomeActivity extends AppCompatActivity {
     private ArrayList<TaskEntity> listOfTask;
     private DateFormat dateFormat;
     private Date date;
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        // Init Prefs
+        prefs = getApplicationContext().getSharedPreferences(getResources().getString(R.string.key_prefs), Context.MODE_PRIVATE);
+
+        if (savedInstanceState == null){
+            Bundle extras = getIntent().getExtras();
+            if (extras!= null){
+                saveUserPrefs(extras.getString("email"));
+            } else {
+                // do nothing maybe
+            }
+        }
 
         // Init variables
         fabCreateTask = findViewById(R.id.fabCreateTask);
@@ -78,6 +93,12 @@ public class HomeActivity extends AppCompatActivity {
         rvTasktoDone.setAdapter(mAdapter);
 
         setListeners();
+    }
+
+    private void saveUserPrefs(String email) {
+        editor = prefs.edit();
+        editor.putString("email", email);
+        editor.apply();
     }
 
     private void setListeners() {
@@ -117,7 +138,6 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.close_session:
-                // Firebase Close sessión
                 closeSession();
                 return true;
             default:
@@ -126,6 +146,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void closeSession() {
+        editor.clear();
+        editor.apply();
         FirebaseServices.closeSession();
         Intent goLogin = new Intent(this, LoginActivity.class);
         startActivity(goLogin);

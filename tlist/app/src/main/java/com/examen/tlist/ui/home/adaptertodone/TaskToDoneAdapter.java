@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.examen.tlist.R;
 import com.examen.tlist.ui.home.adaptertaskdone.TaskDoneAdapter;
 import com.examen.tlist.ui.home.model.TaskEntity;
-import com.examen.tlist.ui.home.utils.ToolBox;
 
 import java.util.ArrayList;
 

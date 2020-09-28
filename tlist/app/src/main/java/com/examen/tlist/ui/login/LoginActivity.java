@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.examen.tlist.R;
 import com.examen.tlist.services.firebase.FirebaseServices;
-import com.examen.tlist.ui.home.utils.ToolBox;
+import com.examen.tlist.utils.ToolBox;
 import com.examen.tlist.ui.registeruser.RegisterUserActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
