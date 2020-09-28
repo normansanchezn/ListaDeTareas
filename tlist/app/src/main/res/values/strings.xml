@@ -9,4 +9,5 @@
     <string name="title_to_task">Nueva tarea</string>
     <string name="title_radio_button">Titulo</string>
     <string name="pattern_day">yyyy/MM/dd HH:mm:ss</string>
+    <string name="empty_task">Debes escribir el título de una tarea</string>
 </resources>

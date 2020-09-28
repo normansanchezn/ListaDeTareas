@@ -1,4 +1,4 @@
-package com.examen.tlist.ui.home.adaptertodone;
+package com.examen.tlist.ui.home.adaptertaskdone;
 
 import android.view.View;
 import android.widget.RadioButton;
@@ -8,11 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.examen.tlist.R;
 
-public class TaskToDoneViewHolder extends RecyclerView.ViewHolder {
-
+public class TaskDoneViewHolder extends RecyclerView.ViewHolder {
     RadioButton radioButton;
 
-    public TaskToDoneViewHolder(@NonNull View itemView) {
+    public TaskDoneViewHolder(@NonNull View itemView) {
         super(itemView);
         radioButton = itemView.findViewById(R.id.rbItem);
     }

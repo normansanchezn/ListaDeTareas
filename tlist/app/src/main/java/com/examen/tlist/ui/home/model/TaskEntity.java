@@ -1,7 +1,5 @@
 package com.examen.tlist.ui.home.model;
 
-import java.util.Date;
-
 public class TaskEntity {
     private String titleOfTask;
     private String dateOfTask;

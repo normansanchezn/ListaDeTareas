@@ -12,8 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.examen.tlist.R;
-import com.examen.tlist.ui.home.adaptertodone.TasktToDoneAdapter;
+import com.examen.tlist.ui.home.adaptertodone.TaskToDoneAdapter;
 import com.examen.tlist.ui.home.model.TaskEntity;
+import com.examen.tlist.ui.home.utils.ToolBox;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.DateFormat;
@@ -28,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button btnSummit, btnCancel;
     private EditText etTask;
     private View dialogView;
-    private RecyclerView recyclerView;
+    private RecyclerView rvTasktoDone, rvTaskDone;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<TaskEntity> listOfTask;
@@ -40,35 +41,43 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        // Init variables
         fabCreateTask = findViewById(R.id.fabCreateTask);
         dialogView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_template, null);
         btnCancel = (Button) dialogView.findViewById(R.id.btnCancel);
         btnSummit = (Button) dialogView.findViewById(R.id.btnSummit);
         etTask = (EditText) dialogView.findViewById(R.id.etComment);
+        rvTasktoDone = (RecyclerView) findViewById(R.id.rvTastToDone);
+        rvTaskDone = (RecyclerView) findViewById(R.id.rvTaskDone);
 
+        dateFormat = new SimpleDateFormat(getResources().getString(R.string.pattern_day));
+        listOfTask = new ArrayList<>();
+
+        // For AlertDialog
         final AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
         builder.setView(dialogView);
         builder.setCancelable(true);
         dialogBuilder = builder.create();
 
-        recyclerView = (RecyclerView) findViewById(R.id.rvTastToDone);
-        recyclerView.setHasFixedSize(true);
+        // For RecyclerView
+        rvTasktoDone.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        dateFormat = new SimpleDateFormat(getResources().getString(R.string.pattern_day));
-
-        listOfTask = new ArrayList<>();
+        rvTasktoDone.setLayoutManager(layoutManager);
 
         // List of task mock
         // listOfTask.add(new TaskEntity("Tarea", dateFormat.format(date), false));
 
-        mAdapter = new TasktToDoneAdapter(this, listOfTask);
-        recyclerView.setAdapter(mAdapter);
+        mAdapter = new TaskToDoneAdapter(this, listOfTask, rvTaskDone);
+        rvTasktoDone.setAdapter(mAdapter);
 
+        setListeners();
+    }
+
+    private void setListeners() {
         fabCreateTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                etTask.setText("");
                 dialogBuilder.show();
             }
         });
@@ -84,10 +93,15 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String titleOfTask = etTask.getText().toString();
-                date = new Date();
-                listOfTask.add(new TaskEntity(titleOfTask, dateFormat.format(date), false));
-                mAdapter.notifyDataSetChanged();
-                dialogBuilder.dismiss();
+
+                if (titleOfTask.equals("")){
+                    ToolBox.showToast(getApplicationContext(), getResources().getString(R.string.empty_task));
+                } else {
+                    date = new Date();
+                    listOfTask.add(new TaskEntity(titleOfTask, dateFormat.format(date), false));
+                    mAdapter.notifyDataSetChanged();
+                    dialogBuilder.dismiss();
+                }
             }
         });
     }
