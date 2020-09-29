@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
@@ -45,10 +46,13 @@ public class TaskToDoneAdapter extends RecyclerView.Adapter<TaskToDoneViewHolder
     @Override
     public void onBindViewHolder(@NonNull final TaskToDoneViewHolder holder, final int position) {
         final RadioButton radioButton = holder.radioButton;
+        final ImageView btnEdit = holder.btnEdit;
+        final ImageView btnDelete = holder.btnDelete;
+
         rvTaskDone.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(context);
         rvTaskDone.setLayoutManager(layoutManager);
-        mAdapter = new TaskDoneAdapter(context, listDone);
+        mAdapter = new TaskDoneAdapter(context, listDone, dataBase);
         rvTaskDone.setAdapter(mAdapter);
 
         if (!dataBase.localDao().getAllTaskDone(true).isEmpty()) {
@@ -70,6 +74,21 @@ public class TaskToDoneAdapter extends RecyclerView.Adapter<TaskToDoneViewHolder
                     list.remove(position);
                 }
                 mAdapter.notifyDataSetChanged();
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                list.remove(position);
+                dataBase.localDao().deleteTask(list.get(position));
+            }
+        });
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO: Edit
             }
         });
 

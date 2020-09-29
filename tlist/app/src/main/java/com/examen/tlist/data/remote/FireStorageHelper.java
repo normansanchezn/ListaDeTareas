@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.examen.tlist.data.model.TaskEntity;
+import com.examen.tlist.utils.ToolBox;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
@@ -23,7 +24,7 @@ import java.util.List;
 public class FireStorageHelper {
     private static FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
-    public static void createTaskRemote(Context context, TaskEntity taskEntity, String user){
+    public static void createTaskRemote(final Context context, TaskEntity taskEntity, String user){
         HashMap<String, Object> task = new HashMap<>();
         task.put("id", taskEntity.getId());
         task.put("titleOfTask", taskEntity.getTitleOfTask());
@@ -34,6 +35,7 @@ public class FireStorageHelper {
             @Override
             public void onSuccess(Void aVoid) {
                 Log.i("Firestore", "isSuccess");
+                ToolBox.showToast(context, "Se agregó a Firestore correctamente");
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

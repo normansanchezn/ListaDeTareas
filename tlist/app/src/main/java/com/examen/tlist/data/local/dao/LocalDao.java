@@ -30,4 +30,7 @@ public interface LocalDao {
 
     @Query("SELECT * FROM table_task WHERE verify_task = :verify")
     List<TaskEntity> getAllTaskToDone(boolean verify);
+
+    @Query("UPDATE table_task SET title_task = :task WHERE title_task = :taskToEdit")
+    void updateTask(String task, String taskToEdit);
 }
