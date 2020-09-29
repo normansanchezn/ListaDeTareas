@@ -22,6 +22,8 @@ public class RegisterUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
 
+        getSupportActionBar().setTitle(getResources().getString(R.string.title_register));
+
         // Init variables
         etName = findViewById(R.id.etName);
         etLastName = findViewById(R.id.etLastName);
@@ -48,5 +50,11 @@ public class RegisterUserActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
     }
 }

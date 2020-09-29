@@ -26,7 +26,7 @@ public class FirebaseServices {
                     goHome.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(goHome);
                 } else {
-                    ToolBox.showToast(context, context.getResources().getString(R.string.error_register));
+                    ToolBox.showToast(context, context.getResources().getString(R.string.error_login));
                 }
             }
         });

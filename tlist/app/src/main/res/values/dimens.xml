@@ -2,4 +2,14 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="space_8">8dp</dimen>
     <dimen name="space_0">0dp</dimen>
+    <dimen name="space_32">32dp</dimen>
+    <dimen name="space_4">4dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="size_24">24sp</dimen>
+    <dimen name="space_40">40dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+    <dimen name="space_60">60dp</dimen>
+    <dimen name="space_50">50dp</dimen>
+    <dimen name="space_250">250dp</dimen>
+    <dimen name="space_2">2dp</dimen>
 </resources>

@@ -9,43 +9,61 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:src="@drawable/image_title"
+        android:scaleX="0.4"
+        android:scaleY="0.4"
+        android:elevation="@dimen/space_4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/glLogin"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="@+id/glLogin" />
 
     <EditText
         android:id="@+id/etEmailLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/space_50"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
+        android:elevation="@dimen/space_4"
+        android:textColor="@color/colorPrimary"
+        android:paddingStart="@dimen/space_24"
+        android:paddingEnd="@dimen/space_24"
+        android:background="@drawable/bg_edittext"
         android:inputType="textEmailAddress"
-        android:text="normansanchezn@gmail.com"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        android:hint="@string/hint_mail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/etPasswordLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/space_50"
+        android:paddingStart="@dimen/space_24"
+        android:paddingEnd="@dimen/space_24"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:elevation="@dimen/space_4"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/bg_edittext"
         android:inputType="textPassword"
-        android:text="Reptilia04"
+        android:hint="@string/hint_password"
         app:layout_constraintEnd_toEndOf="@+id/etEmailLogin"
         app:layout_constraintStart_toStartOf="@+id/etEmailLogin"
         app:layout_constraintTop_toBottomOf="@+id/etEmailLogin" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/space_250"
+        android:layout_height="@dimen/space_50"
         android:layout_marginTop="16dp"
+        android:background="@drawable/bg_blue_edittext"
         android:enabled="true"
+        android:elevation="@dimen/space_4"
+        android:textColor="@color/white"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="@+id/etPasswordLogin"
         app:layout_constraintStart_toStartOf="@+id/etPasswordLogin"
@@ -63,8 +81,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:elevation="@dimen/space_2"
         android:text="@string/register_here"
         app:layout_constraintEnd_toEndOf="@+id/btnLogin"
         app:layout_constraintStart_toStartOf="@+id/btnLogin"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <ImageView
+        android:id="@+id/iv_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

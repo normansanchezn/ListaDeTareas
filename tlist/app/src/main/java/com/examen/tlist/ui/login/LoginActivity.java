@@ -28,6 +28,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
 
+            getSupportActionBar().hide();
+
             // Init variables
             btnLogin = findViewById(R.id.btnLogin);
             tvSingup = findViewById(R.id.tvSingup);
