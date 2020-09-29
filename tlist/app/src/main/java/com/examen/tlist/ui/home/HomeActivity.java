@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,6 +33,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -83,6 +85,11 @@ public class HomeActivity extends AppCompatActivity {
             listOfTask.clear();
             listOfTask.addAll(dataBase.localDao().getAllTaskToDone(false));
         }
+
+        // Go to task Firestore
+        List<TaskEntity> taskss = new ArrayList<>();
+        taskss = FireStorageHelper.getTaskToDone(getApplicationContext(), prefs.getString("email", ""));
+        Log.i("TASK_TO_DONE", taskss.toString());
 
         // For AlertDialog
         final AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
