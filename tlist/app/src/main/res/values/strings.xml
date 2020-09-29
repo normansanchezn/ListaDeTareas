@@ -23,4 +23,6 @@
     <string name="close_session">Cerrar sesión</string>
     <string name="key_prefs">prefs_user</string>
     <string name="title_register">Registro de usuario</string>
+    <string name="no_task">Añade una tarea</string>
+    <string name="hint_task">Añade el título de una tarea</string>
 </resources>

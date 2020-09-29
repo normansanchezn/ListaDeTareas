@@ -7,8 +7,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.examen.tlist.data.local.dao.LocalDao;
-import com.examen.tlist.data.local.model.TaskEntity;
-import com.examen.tlist.data.local.model.UserEntity;
+import com.examen.tlist.data.model.TaskEntity;
+import com.examen.tlist.data.model.UserEntity;
 
 @Database(entities = {UserEntity.class, TaskEntity.class}, version = 1, exportSchema = false)
 public abstract class RoomDb extends RoomDatabase {

@@ -1,4 +1,4 @@
-package com.examen.tlist.data.local.model;
+package com.examen.tlist.data.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

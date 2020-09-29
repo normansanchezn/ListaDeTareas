@@ -20,9 +20,10 @@ import android.widget.EditText;
 
 import com.examen.tlist.R;
 import com.examen.tlist.data.local.RoomDb;
+import com.examen.tlist.data.remote.FireStorageHelper;
 import com.examen.tlist.services.firebase.FirebaseServices;
 import com.examen.tlist.ui.home.adaptertodone.TaskToDoneAdapter;
-import com.examen.tlist.data.local.model.TaskEntity;
+import com.examen.tlist.data.model.TaskEntity;
 import com.examen.tlist.utils.ToolBox;
 import com.examen.tlist.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -136,6 +137,7 @@ public class HomeActivity extends AppCompatActivity {
                     date = new Date();
                     TaskEntity taskEntity = new TaskEntity(titleOfTask, dateFormat.format(date), false);
                     listOfTask.add(taskEntity);
+                    FireStorageHelper.createTaskRemote(getApplicationContext(), taskEntity, prefs.getString("email", ""));
                     dataBase.localDao().insertTask(taskEntity);
                     mAdapter.notifyDataSetChanged();
                     dialogBuilder.dismiss();

@@ -1,16 +1,13 @@
 package com.examen.tlist.data.local.dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.Update;
 
-import com.examen.tlist.data.local.model.TaskEntity;
+import com.examen.tlist.data.model.TaskEntity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Dao

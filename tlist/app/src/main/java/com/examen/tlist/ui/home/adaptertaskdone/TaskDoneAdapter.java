@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.examen.tlist.R;
-import com.examen.tlist.data.local.model.TaskEntity;
+import com.examen.tlist.data.model.TaskEntity;
 
 import java.util.ArrayList;
 
