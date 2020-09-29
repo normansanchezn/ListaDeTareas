@@ -48,8 +48,11 @@ public class TaskDoneAdapter extends RecyclerView.Adapter<TaskDoneViewHolder> {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listDone.remove(position);
-                dataBase.localDao().deleteTask(listDone.remove(position));
+                if (listDone.size() != 0){
+                    listDone.remove(position);
+                    dataBase.localDao().deleteTask(listDone.remove(position));
+                    notifyDataSetChanged();
+                }
             }
         });
 

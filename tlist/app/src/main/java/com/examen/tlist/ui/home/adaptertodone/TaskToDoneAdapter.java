@@ -15,6 +15,7 @@ import com.examen.tlist.R;
 import com.examen.tlist.data.local.RoomDb;
 import com.examen.tlist.ui.home.adaptertaskdone.TaskDoneAdapter;
 import com.examen.tlist.data.model.TaskEntity;
+import com.examen.tlist.utils.ToolBox;
 
 import java.util.ArrayList;
 
@@ -72,6 +73,7 @@ public class TaskToDoneAdapter extends RecyclerView.Adapter<TaskToDoneViewHolder
                     dataBase.localDao().updateTask(true, list.get(position).getTitleOfTask());
                     listDone.add(list.get(position));
                     list.remove(position);
+                    notifyDataSetChanged();
                 }
                 mAdapter.notifyDataSetChanged();
             }
@@ -80,8 +82,14 @@ public class TaskToDoneAdapter extends RecyclerView.Adapter<TaskToDoneViewHolder
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                list.remove(position);
-                dataBase.localDao().deleteTask(list.get(position));
+                if (list.size()!=0){
+                    list.remove(position);
+                    if (list.size()==0){
+                        ToolBox.showToast(context, "Ya no hay tareas para mostrar");
+                    }
+                    dataBase.localDao().deleteTask(list.get(position));
+                    notifyDataSetChanged();
+                }
             }
         });
 
