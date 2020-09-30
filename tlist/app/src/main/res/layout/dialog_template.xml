@@ -1,75 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/bg_dialog"
-    app:layout_constraintCircleRadius="@dimen/space_16"
-    android:layout_margin="@dimen/space_8">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/tvTitle"
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_8"
-        android:layout_marginTop="@dimen/space_8"
-        android:layout_marginEnd="@dimen/space_8"
-        android:padding="@dimen/space_8"
-        android:text="@string/title_to_task"
-        android:textSize="@dimen/size_24"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@drawable/bg_dialog"
+        app:layout_constraintCircleRadius="@dimen/space_16"
+        android:layout_margin="@dimen/space_8">
 
-    <EditText
-        android:id="@+id/etComment"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/space_50"
-        android:layout_marginStart="@dimen/space_8"
-        android:layout_marginTop="@dimen/space_8"
-        android:layout_marginEnd="@dimen/space_8"
-        android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/size_18"
-        android:paddingEnd="@dimen/space_16"
-        android:paddingStart="@dimen/space_16"
-        android:hint="@string/hint_task"
-        android:background="@drawable/bg_edittext"
-        android:inputType="textMultiLine|text"
-        android:padding="@dimen/space_8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_8"
+            android:layout_marginTop="@dimen/space_8"
+            android:layout_marginEnd="@dimen/space_8"
+            android:padding="@dimen/space_8"
+            android:text="@string/title_to_task"
+            android:textSize="@dimen/size_24"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnSummit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="@dimen/space_8"
-        android:layout_marginBottom="@dimen/space_8"
-        android:text="@string/label_create_task"
-        android:textColor="@color/colorPrimary"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnCancel"
-        app:layout_constraintTop_toBottomOf="@+id/etComment" />
+        <EditText
+            android:id="@+id/etComment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_50"
+            android:layout_marginStart="@dimen/space_8"
+            android:layout_marginTop="@dimen/space_8"
+            android:layout_marginEnd="@dimen/space_8"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/size_18"
+            android:paddingEnd="@dimen/space_16"
+            android:paddingStart="@dimen/space_16"
+            android:hint="@string/hint_task"
+            android:background="@drawable/bg_edittext"
+            android:inputType="textMultiLine|text"
+            android:padding="@dimen/space_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_8"
-        android:layout_marginTop="@dimen/space_8"
-        android:layout_marginBottom="@dimen/space_8"
-        android:text="@string/label_cancel"
-        android:background="@android:color/transparent"
-        android:textColor="@color/grey_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnSummit"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etComment" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnSummit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/space_8"
+            android:layout_marginBottom="@dimen/space_8"
+            android:text="@string/label_create_task"
+            android:textColor="@color/colorPrimary"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnCancel"
+            app:layout_constraintTop_toBottomOf="@+id/etComment" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_8"
+            android:layout_marginTop="@dimen/space_8"
+            android:layout_marginBottom="@dimen/space_8"
+            android:text="@string/label_cancel"
+            android:background="@android:color/transparent"
+            android:textColor="@color/grey_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnSummit"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etComment" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

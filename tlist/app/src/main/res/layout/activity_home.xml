@@ -1,94 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.home.HomeActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/tvTitleToDone"
-        android:layout_width="@dimen/space_0"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_32"
-        android:layout_marginTop="@dimen/space_8"
-        android:layout_marginEnd="@dimen/space_32"
-        android:text="@string/title_to_done"
-        android:textSize="@dimen/size_24"
-        android:textColor="@color/text_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <TextView
-        android:id="@+id/tvNoTask"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/no_task"
-        android:textColor="@color/grey_text"
-        android:textSize="@dimen/size_20"
-        android:elevation="@dimen/space_4"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/rvTastToDone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleToDone" />
+    </data>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTastToDone"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_0"
-        android:layout_marginStart="@dimen/space_16"
-        android:layout_marginTop="@dimen/space_8"
-        android:layout_marginEnd="@dimen/space_16"
-        android:layout_marginBottom="@dimen/space_8"
-        app:layout_constraintBottom_toTopOf="@+id/gl_medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleToDone" />
+        android:layout_height="match_parent"
+        tools:context=".ui.home.HomeActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_medium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.60" />
+        <TextView
+            android:id="@+id/tvTitleToDone"
+            android:layout_width="@dimen/space_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_32"
+            android:layout_marginTop="@dimen/space_8"
+            android:layout_marginEnd="@dimen/space_32"
+            android:text="@string/title_to_done"
+            android:textSize="@dimen/size_24"
+            android:textColor="@color/text_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvTitleDoneTask"
-        android:layout_width="@dimen/space_0"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_32"
-        android:layout_marginTop="@dimen/space_8"
-        android:layout_marginEnd="@dimen/space_32"
-        android:textSize="@dimen/size_24"
-        android:textColor="@color/text_color"
-        android:text="@string/title_done_task"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/gl_medium" />
+        <TextView
+            android:id="@+id/tvNoTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_task"
+            android:textColor="@color/grey_text"
+            android:textSize="@dimen/size_20"
+            android:elevation="@dimen/space_4"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/rvTastToDone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleToDone" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTaskDone"
-        android:layout_width="@dimen/space_0"
-        android:layout_height="@dimen/space_0"
-        android:layout_marginStart="@dimen/space_16"
-        android:layout_marginTop="@dimen/space_8"
-        android:layout_marginEnd="@dimen/space_16"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleDoneTask" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTastToDone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_0"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginTop="@dimen/space_8"
+            android:layout_marginEnd="@dimen/space_16"
+            android:layout_marginBottom="@dimen/space_8"
+            app:layout_constraintBottom_toTopOf="@+id/gl_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleToDone" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabCreateTask"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/space_32"
-        android:layout_marginBottom="@dimen/space_32"
-        android:src="@drawable/ic_add"
-        android:elevation="@dimen/space_4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.60" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvTitleDoneTask"
+            android:layout_width="@dimen/space_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_32"
+            android:layout_marginTop="@dimen/space_8"
+            android:layout_marginEnd="@dimen/space_32"
+            android:textSize="@dimen/size_24"
+            android:textColor="@color/text_color"
+            android:text="@string/title_done_task"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/gl_medium" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTaskDone"
+            android:layout_width="@dimen/space_0"
+            android:layout_height="@dimen/space_0"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginTop="@dimen/space_8"
+            android:layout_marginEnd="@dimen/space_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleDoneTask" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCreateTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_32"
+            android:layout_marginBottom="@dimen/space_32"
+            android:src="@drawable/ic_add"
+            android:elevation="@dimen/space_4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

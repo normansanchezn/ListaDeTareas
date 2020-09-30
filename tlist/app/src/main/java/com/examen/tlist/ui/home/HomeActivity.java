@@ -3,6 +3,7 @@ package com.examen.tlist.ui.home;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +23,7 @@ import android.widget.EditText;
 import com.examen.tlist.R;
 import com.examen.tlist.data.local.RoomDb;
 import com.examen.tlist.data.remote.FireStorageHelper;
+import com.examen.tlist.databinding.ActivityHomeBinding;
 import com.examen.tlist.services.firebase.FirebaseServices;
 import com.examen.tlist.ui.home.adaptertodone.TaskToDoneAdapter;
 import com.examen.tlist.data.model.TaskEntity;
@@ -37,12 +39,8 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private FloatingActionButton fabCreateTask;
     private AlertDialog dialogBuilder;
-    private Button btnSummit, btnCancel;
-    private EditText etTask;
     private View dialogView;
-    private RecyclerView rvTasktoDone, rvTaskDone;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<TaskEntity> listOfTask;
@@ -52,10 +50,14 @@ public class HomeActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private RoomDb dataBase;
 
+    private EditText etTask;
+    private Button btnCancel, btnSummit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        final ActivityHomeBinding homeBinding = DataBindingUtil.setContentView(this, R.layout.activity_home);
+
         // Init Prefs
         prefs = getApplicationContext().getSharedPreferences(getResources().getString(R.string.key_prefs), Context.MODE_PRIVATE);
 
@@ -69,14 +71,10 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
 
-        // Init variables
-        fabCreateTask = findViewById(R.id.fabCreateTask);
         dialogView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_template, null);
-        btnCancel = (Button) dialogView.findViewById(R.id.btnCancel);
         btnSummit = (Button) dialogView.findViewById(R.id.btnSummit);
+        btnCancel = (Button) dialogView.findViewById(R.id.btnCancel);
         etTask = (EditText) dialogView.findViewById(R.id.etComment);
-        rvTasktoDone = (RecyclerView) findViewById(R.id.rvTastToDone);
-        rvTaskDone = (RecyclerView) findViewById(R.id.rvTaskDone);
 
         dateFormat = new SimpleDateFormat(getResources().getString(R.string.pattern_day));
         listOfTask = new ArrayList<>();
@@ -98,17 +96,17 @@ public class HomeActivity extends AppCompatActivity {
         dialogBuilder = builder.create();
 
         // For RecyclerView
-        rvTasktoDone.setHasFixedSize(true);
+        homeBinding.rvTastToDone.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        rvTasktoDone.setLayoutManager(layoutManager);
+        homeBinding.rvTastToDone.setLayoutManager(layoutManager);
 
         // List of task mock
         // listOfTask.add(new TaskEntity("Tarea", dateFormat.format(date), false));
 
-        mAdapter = new TaskToDoneAdapter(this, listOfTask, rvTaskDone, dataBase);
-        rvTasktoDone.setAdapter(mAdapter);
+        mAdapter = new TaskToDoneAdapter(this, listOfTask, homeBinding.rvTaskDone, dataBase);
+        homeBinding.rvTastToDone.setAdapter(mAdapter);
 
-        setListeners();
+        setListeners(homeBinding);
     }
 
     private void saveUserPrefs(String email) {
@@ -117,8 +115,8 @@ public class HomeActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    private void setListeners() {
-        fabCreateTask.setOnClickListener(new View.OnClickListener() {
+    private void setListeners(final ActivityHomeBinding homeBinding) {
+        homeBinding.fabCreateTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 etTask.setText("");
