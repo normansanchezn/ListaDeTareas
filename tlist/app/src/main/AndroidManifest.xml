@@ -12,9 +12,11 @@
         android:roundIcon="@mipmap/ic_principal_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.registeruser.RegisterUserActivity"/>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login"></activity>
+        <activity android:name=".ui.registeruser.RegisterUserActivity" />
         <activity android:name=".ui.home.HomeActivity" />
-        <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

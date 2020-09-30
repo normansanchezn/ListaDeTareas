@@ -10,7 +10,7 @@ import com.examen.tlist.data.local.dao.LocalDao;
 import com.examen.tlist.data.model.TaskEntity;
 import com.examen.tlist.data.model.UserEntity;
 
-@Database(entities = {UserEntity.class, TaskEntity.class}, version = 1, exportSchema = false)
+@Database(entities = {UserEntity.class, TaskEntity.class}, version = 2, exportSchema = false)
 public abstract class RoomDb extends RoomDatabase {
 
     public static RoomDb roomDb;

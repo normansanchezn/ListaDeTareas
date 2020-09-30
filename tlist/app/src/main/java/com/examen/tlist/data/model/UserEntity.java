@@ -17,15 +17,18 @@ public class UserEntity {
     private String mail;
     @ColumnInfo(name = "password")
     private String password;
+    @ColumnInfo(name = "re_password")
+    private String rePassword;
 
     public UserEntity() {
     }
 
-    public UserEntity(String name, String lastName, String mail, String password) {
+    public UserEntity(String name, String lastName, String mail, String password, String rePassword) {
         this.name = name;
         this.lastName = lastName;
         this.mail = mail;
         this.password = password;
+        this.rePassword = rePassword;
     }
 
     public void setId(int id) {
@@ -66,5 +69,13 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRePassword() {
+        return rePassword;
+    }
+
+    public void setRePassword(String rePassword) {
+        this.rePassword = rePassword;
     }
 }

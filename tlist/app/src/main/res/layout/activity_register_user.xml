@@ -1,102 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.registeruser.RegisterUserActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/space_50"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:paddingStart="@dimen/space_24"
-        android:paddingEnd="@dimen/space_24"
-        android:background="@drawable/bg_edittext"
-        android:textColor="@color/colorPrimary"
-        android:hint="@string/name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
+        <variable
+            name="user"
+            type="com.examen.tlist.data.model.UserEntity" />
+        <variable
+            name="viewModel"
+            type="com.examen.tlist.ui.registeruser.RegisterUserViewModel"/>
+    </data>
 
-    <EditText
-        android:id="@+id/etLastName"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/space_50"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:paddingStart="@dimen/space_24"
-        android:paddingEnd="@dimen/space_24"
-        android:background="@drawable/bg_edittext"
-        android:textColor="@color/colorPrimary"
-        android:hint="@string/last_name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/etName"
-        app:layout_constraintStart_toStartOf="@+id/etName"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.registeruser.RegisterUserActivity">
 
-    <EditText
-        android:id="@+id/etMail"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/space_50"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:paddingStart="@dimen/space_24"
-        android:paddingEnd="@dimen/space_24"
-        android:background="@drawable/bg_edittext"
-        android:textColor="@color/colorPrimary"
-        android:hint="@string/hint_mail"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/etLastName"
-        app:layout_constraintStart_toStartOf="@+id/etLastName"
-        app:layout_constraintTop_toBottomOf="@+id/etLastName" />
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/space_50"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:paddingStart="@dimen/space_24"
+            android:paddingEnd="@dimen/space_24"
+            android:background="@drawable/bg_edittext"
+            android:textColor="@color/colorPrimary"
+            android:hint="@string/name"
+            android:text="@{user.name}"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etPasswordLogin"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/space_50"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:paddingStart="@dimen/space_24"
-        android:paddingEnd="@dimen/space_24"
-        android:background="@drawable/bg_edittext"
-        android:textColor="@color/colorPrimary"
-        android:hint="@string/hint_password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/etMail"
-        app:layout_constraintStart_toStartOf="@+id/etMail"
-        app:layout_constraintTop_toBottomOf="@+id/etMail" />
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/space_50"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:paddingStart="@dimen/space_24"
+            android:paddingEnd="@dimen/space_24"
+            android:background="@drawable/bg_edittext"
+            android:textColor="@color/colorPrimary"
+            android:hint="@string/last_name"
+            android:text="@{user.lastName}"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/etName"
+            app:layout_constraintStart_toStartOf="@+id/etName"
+            app:layout_constraintTop_toBottomOf="@+id/etName" />
 
-    <EditText
-        android:id="@+id/etPasswordRepit"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/space_50"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:paddingStart="@dimen/space_24"
-        android:paddingEnd="@dimen/space_24"
-        android:background="@drawable/bg_edittext"
-        android:textColor="@color/colorPrimary"
-        android:hint="@string/hint_password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/etPasswordLogin"
-        app:layout_constraintStart_toStartOf="@+id/etPasswordLogin"
-        app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin" />
+        <EditText
+            android:id="@+id/etMail"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/space_50"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:paddingStart="@dimen/space_24"
+            android:paddingEnd="@dimen/space_24"
+            android:background="@drawable/bg_edittext"
+            android:textColor="@color/colorPrimary"
+            android:hint="@string/hint_mail"
+            android:text="@{user.mail}"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="@+id/etLastName"
+            app:layout_constraintStart_toStartOf="@+id/etLastName"
+            app:layout_constraintTop_toBottomOf="@+id/etLastName" />
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="@dimen/space_250"
-        android:layout_height="@dimen/space_50"
-        android:textColor="@color/white"
-        android:background="@drawable/bg_blue_edittext"
-        android:layout_marginTop="16dp"
-        android:text="@string/register"
-        app:layout_constraintEnd_toEndOf="@+id/etPasswordRepit"
-        app:layout_constraintStart_toStartOf="@+id/etPasswordRepit"
-        app:layout_constraintTop_toBottomOf="@+id/etPasswordRepit" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/etPasswordLogin"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/space_50"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:text="@{user.password}"
+            android:paddingStart="@dimen/space_24"
+            android:paddingEnd="@dimen/space_24"
+            android:background="@drawable/bg_edittext"
+            android:textColor="@color/colorPrimary"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="@+id/etMail"
+            app:layout_constraintStart_toStartOf="@+id/etMail"
+            app:layout_constraintTop_toBottomOf="@+id/etMail" />
+
+        <EditText
+            android:id="@+id/etPasswordRepit"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/space_50"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:text="@{user.rePassword}"
+            android:paddingStart="@dimen/space_24"
+            android:paddingEnd="@dimen/space_24"
+            android:background="@drawable/bg_edittext"
+            android:textColor="@color/colorPrimary"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="@+id/etPasswordLogin"
+            app:layout_constraintStart_toStartOf="@+id/etPasswordLogin"
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="@dimen/space_250"
+            android:layout_height="@dimen/space_50"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_blue_edittext"
+            android:layout_marginTop="16dp"
+            android:text="@string/register"
+            app:layout_constraintEnd_toEndOf="@+id/etPasswordRepit"
+            app:layout_constraintStart_toStartOf="@+id/etPasswordRepit"
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordRepit" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
