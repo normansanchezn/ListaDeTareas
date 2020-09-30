@@ -19,13 +19,8 @@ public class RegisterUserViewModel extends ViewModel {
     public LiveData<List<UserEntity>> getUsers() {
         if (users == null) {
             users = new MutableLiveData<List<UserEntity>>();
-            loadUsers();
         }
         return users;
-    }
-
-    private void loadUsers() {
-        // Do an asynchronous operation to fetch users.
     }
 
     public void registerUser(Context context, String correo, String password) {

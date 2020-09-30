@@ -2,13 +2,16 @@ package com.examen.tlist.services.firebase;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import com.examen.tlist.R;
+import com.examen.tlist.data.model.TaskEntity;
 import com.examen.tlist.ui.home.HomeActivity;
 import com.examen.tlist.utils.ToolBox;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,6 +48,12 @@ public class FirebaseServices {
                 } else {
                     ToolBox.showToast(context, context.getResources().getString(R.string.error_register));
                 }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.i("ERROR", e.getMessage());
+                ToolBox.showToast(context, e.getMessage());
             }
         });
     }
